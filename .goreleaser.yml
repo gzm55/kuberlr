@@ -17,12 +17,7 @@ builds:
       - windows
     goarch:
       - amd64
-      - arm
       - arm64
-      - s390x
-    hooks:
-      post:
-        - sh -c "cosign sign-blob --yes --output-certificate dist/{{ .ProjectName }}_{{ .Version }}_{{ .Target }}.pem --output-signature dist/{{ .ProjectName }}_{{ .Version }}_{{ .Target }}.sig {{ .Path }}"
 release:
   extra_files:
     - glob: dist/*.sig
