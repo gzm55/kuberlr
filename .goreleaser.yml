@@ -13,22 +13,13 @@ builds:
       - -X=github.com/flavio/kuberlr/pkg/kuberlr.Tag={{.Tag}}
     goos:
       - linux
-      - darwin
-      - windows
     goarch:
       - amd64
-      - arm64
 release:
-  extra_files:
-    - glob: dist/*.sig
-    - glob: dist/*.pem
 universal_binaries:
   - replace: false
 archives:
-  - format_overrides:
-      - goos: windows
-        format: zip
-    wrap_in_directory: true
+  - wrap_in_directory: true
 checksum:
   name_template: "checksums.txt"
 snapshot:
